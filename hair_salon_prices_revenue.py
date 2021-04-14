@@ -27,15 +27,15 @@ print("Average Haircut Price This Week: $" + str(new_price_average))
 print()
 #better! also i just realized it's literally last week's average minus 5 lol
 
-#how much revanue was made last week?
-total_revanue = 0
+#how much revenue was made last week?
+total_revenue = 0
 for i in range(len(hairstyles)):
-  total_revanue += prices[i] * last_week[i]
-print("Total Revanue Last Week: $" + str(total_revanue))
+  total_revenue += prices[i] * last_week[i]
+print("Total Revenue Last Week: $" + str(total_revenue))
 
-#average daily revanue last week
-average_daily_revanue = total_revanue / 7
-print("Average Daily Revanue Last Week: $" + str(average_daily_revanue))
+#average daily revenue last week
+average_daily_revenue = total_revenue / 7
+print("Average Daily Revenue Last Week: $" + str(average_daily_revenue))
 print()
 
 #haircuts under 30 dollars using new price list
