@@ -234,6 +234,7 @@ def divisible_by_ten(nums):
     if i % 10 == 0:
       counter += 1
   return counter
+#testing
 print(divisible_by_ten([20, 25, 30, 35, 40]))
 
 #How to greet people
@@ -246,17 +247,15 @@ def add_greetings(names):
 print(add_greetings(["Owen", "Max", "Sophie"]))
 
 #remove initial even numbers, before hitting an odd number, then the list proceeds as normal
-
 def delete_starting_evens(lst):
 # the len(lst) > 0 bit is to tell the program to stop when there's no more numbers
   while len(lst) > 0 and lst[0] % 2 == 0:
     lst = lst[1:]
   return lst
 #no need to include a break bc it's inherent in the while loop
-
 #testing
 print(delete_starting_evens([4, 8, 10, 11, 12, 15]))
-#print(delete_starting_evens([4, 8, 10]))
+print(delete_starting_evens([4, 8, 10]))
 
 #remove numbers with odd indices
 def odd_indices(lst):
@@ -265,7 +264,6 @@ def odd_indices(lst):
   for i in range(1, len(lst), 2):
     new_list.append(lst[i])
   return new_list
-
 #testing
 print(odd_indices([4, 3, 7, 10, 11, -2]))
 
@@ -291,7 +289,6 @@ def larger_sum(lst1, lst2):
 print(larger_sum([1, 9, 5], [2, 3, 7]))
 
 #which numbers in the list are higher than 9000 powerlevels?
-#Write your function here
 def over_nine_thousand(lst):
   sum = 0
   for number in lst:
