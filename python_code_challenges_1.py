@@ -181,14 +181,17 @@ print(combine_sort([4, 10, 2, 5], [-10, 2, 5, 10]))
 
 #every 3 numbers from 0-100 (inclusive)
 def every_three_nums(start):
+  #Make sure to use list() around the range in order to output the actual range as a list. A range() itself is not a list and therefore cannot be treated like one.
   return list(range(start, 101, 3))
 #testing
 print(every_three_nums(91))
 
 #remove middle slice from a list using a function
 def remove_middle(lst, start, end):
+  #to call the last value in the slice, you have to add 1 because the second value in a slice is not inclusive
   return lst[:start] + lst[end + 1:]
 #testing
+#should return [4, 23, 42]
 print(remove_middle([4, 8, 15, 16, 23, 42], 1, 3))
 
 #which item is more frequent in a list?
@@ -200,6 +203,7 @@ def more_frequent_item(lst, item1, item2):
   else:
     return item1
 #testing
+#should output 2
 print(more_frequent_item([2, 3, 3, 2, 3, 2, 3, 2, 3], 2, 3))
 
 #Double a specific integer index
@@ -207,20 +211,26 @@ def double_index(lst, index):
   if index >= len(lst):
     return lst
   else: 
+    #the new list includes the values before the given index
     new_lst = lst[:index]
+    #at the given index, we double it and add it to the new list. new_lst is the half of the list before the doubled value at the given index
     new_lst.append(lst[index] * 2)
     #this method adds the index without deleting the old one, despite it "editing" it
-    #using the [index + 1:] deletes the old index
+    #using the [index + 1:] adds the un-changed latter half of the list. new_lst2 is the half of the list after the doubled value at the given index
     new_lst2 = lst[index + 1:]
+    #this compiles the new list together by adding the 3 parts: new_lst, the doubled value at [index], and new_lst2
     final_lst = new_lst + new_lst2
     return final_lst
 #testing
+#should output [3, 8, -20, 12]
 print(double_index([3, 8, -10, 12], 2))
 
 #My favorite, find the median! /s
 def middle_element(lst):
   if len(lst) % 2 == 0:
-    sum = lst[int(len(lst)/2)] + lst[int(len(lst)/2) - 1]
+    #break down the index value by parts: len(lst)/2 is the middle index, int() turns it into an integer, and putting that in lst[] gives you the element in lst at that index.
+    #The second value, with the -1, because for a list w an even number of values, you take the average of the 2 middle-est numbers
+    sum = lst[int(len(lst) / 2)] + lst[int(len(lst) / 2) - 1]
     return sum / 2
   else:
     return lst[int(len(lst)/2)]
@@ -235,6 +245,7 @@ def divisible_by_ten(nums):
       counter += 1
   return counter
 #testing
+#should return 3
 print(divisible_by_ten([20, 25, 30, 35, 40]))
 
 #How to greet people
@@ -248,20 +259,24 @@ print(add_greetings(["Owen", "Max", "Sophie"]))
 
 #remove initial even numbers, before hitting an odd number, then the list proceeds as normal
 def delete_starting_evens(lst):
-# the len(lst) > 0 bit is to tell the program to stop when there's no more numbers
+#the len(lst) > 0 bit is to tell the program to stop when the list ends
+#this program will move the first number, as long as it's even, over and over until it hits an odd number. the program then terminates and you're left with the remaining list
   while len(lst) > 0 and lst[0] % 2 == 0:
     lst = lst[1:]
   return lst
 #no need to include a break bc it's inherent in the while loop
 #testing
+#should output [11, 12, 15]
 print(delete_starting_evens([4, 8, 10, 11, 12, 15]))
+#should output []
 print(delete_starting_evens([4, 8, 10]))
 
-#remove numbers with odd indices
+#remove numbers with even indices from a list
 def odd_indices(lst):
   new_list = []
 #don't forget to be consistent in loops with your temporary variables
   for i in range(1, len(lst), 2):
+    #range format: range(start, stop, step)
     new_list.append(lst[i])
   return new_list
 #testing
