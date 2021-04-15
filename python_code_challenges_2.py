@@ -31,13 +31,13 @@ def same_values(lst1, lst2):
 print(same_values([5, 1, -10, 3, 3], [5, 10, -10, 3, 5]))
 
 #Check if 2 lists are reciprocal of one another
-#FYI I have no idea how to actually do this one I relied pretty heavily on the hints
 def reversed_list(lst1, lst2):
+  #iterate thru each index 
   for index in range(len(lst1)):
+    #checks if the element at a given index is the same as the element in another list at a given index
     if lst1[index] != lst2[len(lst2) - 1 - index]:
       return False
   return True
-    
 #testing
 print(reversed_list([1, 2, 3], [3, 2, 1]))
 print(reversed_list([1, 5, 3], [3, 2, 1]))
