@@ -1,5 +1,3 @@
-import random
-
 tarot = {
   1:	"The Magician",
   2:	"The High Priestess",
@@ -42,6 +40,7 @@ print()
 #hey let's make this a little more accurate and fun with randint()
 #it's ZOE TIME
 #randomize the cards pulled!! add orientation and randomize that too!
+import random
 tarot2 = {
   1:	"The Magician",
   2:	"The High Priestess",
